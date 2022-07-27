@@ -202,7 +202,7 @@ class _ConfigSQL(object):
         return self.config_keyfile
 
     def get_config_ipaddress(self):
-        return self.cli.ip_address or ""
+        return self.cli.ip_address or os.environ.get("LISTEN_ADDRESS", "")
 
     def _has_role(self, role_flag):
         return constants.has_flag(self.config_default_role, role_flag)
